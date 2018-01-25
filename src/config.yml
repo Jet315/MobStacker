@@ -1,0 +1,64 @@
+#############################################
+#                                           #
+#                 MobStacker                #
+#              Created by Jet315            #
+#                                           #
+#############################################
+# Need help? Have a look at the Spigot Page -
+# Or PM: https://www.spigotmc.org/members/jet315.15295/
+
+
+# The radius in that mobs will be stacked.
+# Measured in Blocks
+# StackRadius: 2 = Mobs within two blocks of each other will be stacked
+# Too large of a radius may cause lag!
+#
+
+StackRadius: 2
+
+
+#Contains the list of mobs we want to stack
+#Use https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html
+#For a valid list of entities
+MobTypes:
+    - ZOMBIE
+    - PIG_ZOMBIE
+    - SPIDER
+    - CREEPER
+
+
+# The update delay for stacking mobs, in ticks (20 per second).
+# The smaller the number, the more times the Plugin will check to stack entities = more server resources needed
+# Suggested: 20-100 (Default 60)
+UpdateTickDelay: 60
+
+#The max of mobs allowed in a stack
+MaxAllowedInStack: 500
+
+
+# The format over the mobs heads
+# Use %number% to replace the number of stacked mobs
+# Use %type% to replace the number of type of mob
+StackFormat: '&a&l%number% &6&l%type%'
+
+# Kill Mob Stack on fall
+# When a mob falls to its death; Should the whole stack be killed? (This will multiply EXP and Drops too)
+killMobStackOnFall: true
+
+#Whether to merge mobs that only spawn from spawners
+MergeOnlySpawnerMobs: false
+
+#Whether tamed or animals on leads should be stacked
+MergeTamedMobs: false
+MergeLeashedMobs: false
+
+#Merging will be disabled in the world listed here.
+#DisabledWorlds:
+#    - disabled_world
+#    - disabled_world2
+DisabledWorlds: []
+
+#WorldGuardRegions:
+#    - disalbed_region1
+#    - disalbed_region2
+WorldGuardRegions: []

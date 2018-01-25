@@ -1,0 +1,6 @@
+name: MobStacker
+version: 1.0
+description: Stacks Mobs based on a range of Configuration Options!
+main: me.jet315.stacker.MobStacker
+softdepend: [WorldGuard]
+commands:
