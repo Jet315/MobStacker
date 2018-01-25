@@ -27,12 +27,7 @@ public class MobStacker extends JavaPlugin{
 
     @Override
     public void onEnable() {
-
-        //TODO LIST:
-        //Load all values from config - pass to entity stacker
-        //Make StackUtil possibly something in the manager / not static
-        //Pass a config instance into entity stacker / others to get values
-        //TODO allow %type% in nametag / exaplin in config
+        
 
         mobStacker = this;
 
