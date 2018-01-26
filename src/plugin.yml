@@ -4,3 +4,6 @@ description: Stacks Mobs based on a range of Configuration Options!
 main: me.jet315.stacker.MobStacker
 softdepend: [WorldGuard]
 commands:
+  mobstacker:
+    usage: /ms - The base mobstacker command
+    aliases: [ms]

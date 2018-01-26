@@ -30,6 +30,7 @@ MobTypes:
 # The update delay for stacking mobs, in ticks (20 per second).
 # The smaller the number, the more times the Plugin will check to stack entities = more server resources needed
 # Suggested: 20-100 (Default 60)
+# (Server Restart suggested after changing this - /ms reload may not work)
 UpdateTickDelay: 60
 
 #The max of mobs allowed in a stack

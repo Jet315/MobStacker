@@ -51,6 +51,15 @@ public class StackEntity {
         return true;
     }
 
+    public boolean unstackAll(LivingEntity livingEntity){
+        livingEntity.setCustomName("1 mob");
+        //Hide name from users
+        livingEntity.setCustomNameVisible(false);
+        livingEntity.setHealth(0);
+        MobStacker.getInstance().getEntityStacker().getValidEntity().remove(livingEntity);
+        return true;
+    }
+
 
     public boolean stack(LivingEntity target, LivingEntity stackee) {
         if (target.getType() != stackee.getType()) {

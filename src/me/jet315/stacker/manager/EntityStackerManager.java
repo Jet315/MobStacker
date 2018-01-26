@@ -23,15 +23,12 @@ import java.util.Set;
  */
 public class EntityStackerManager {
 
-    private int timeout;
     private int mobStackRadius;
     private Set<EntityType> entitiesToStack;
     private ArrayList<LivingEntity> validEnity = new ArrayList<>();
     private ArrayList<LivingEntity> entitiesToMultiplyOnDeath = new ArrayList<>();
-    private static final StateFlag ENTITY_FLAG = new StateFlag("entity-stacking", true);
 
-    public EntityStackerManager(int timeout, int mobStackRadius, Set<EntityType> entitiesToStack) {
-        this.timeout = timeout;
+    public EntityStackerManager(int mobStackRadius, Set<EntityType> entitiesToStack) {
         this.mobStackRadius = mobStackRadius;
         this.entitiesToStack = entitiesToStack;
         startEntityClock();
@@ -59,7 +56,7 @@ public class EntityStackerManager {
                 }
 
             }
-        }, 0L, timeout);
+        }, 0L, MobStacker.getInstance().getMobStackerConfig().updateTickDelay);
 
     }
 

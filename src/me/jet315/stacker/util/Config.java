@@ -1,6 +1,8 @@
 package me.jet315.stacker.util;
 
 import com.sk89q.worldguard.protection.ApplicableRegionSet;
+import me.jet315.stacker.MobStacker;
+import me.jet315.stacker.events.OnEntitySpawn;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -61,13 +63,13 @@ public class Config {
 
     public Config(FileConfiguration configFile) {
         this.configFile = configFile;
-        this.loadConfig();
+        this.reloadConfig();
     }
 
 
 
-    public void loadConfig() {
-
+    public void reloadConfig() {
+        boolean stackOnlySpawnerMobsBefore = stackOnlySpawnerMobs;
         stackRadius = configFile.getInt("StackRadius");
         compileEntityTypesList(configFile.getStringList("MobTypes")); // Load EntityTypes list (mobTypes)
         updateTickDelay = configFile.getInt("UpdateTickDelay");
@@ -89,6 +91,11 @@ public class Config {
         stackLeachedMobs = configFile.getBoolean("MergeLeashedMobs");
         killMobStackOnFall = configFile.getBoolean("killMobStackOnFall");
         compileRegionList(configFile.getStringList("WorldGuardRegions")); // Load EntityTypes list (mobTypes)
+
+        //Load Event if needed - If the event was not loaded before && needs to be loaded - load event
+        if(!stackOnlySpawnerMobsBefore && stackOnlySpawnerMobs){
+                Bukkit.getPluginManager().registerEvents(new OnEntitySpawn(), MobStacker.getInstance());
+        }
 
     }
 
@@ -133,7 +140,6 @@ public class Config {
 
         for (String regionName : list) {
             disabledRegions.add(regionName);
-            System.out.println("added "+ regionName);
 
         }
     }

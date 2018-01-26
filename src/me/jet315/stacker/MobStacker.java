@@ -1,6 +1,7 @@
 package me.jet315.stacker;
 
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
+import me.jet315.stacker.commands.CommandHandler;
 import me.jet315.stacker.events.OnEntityDamage;
 import me.jet315.stacker.events.OnEntityDeath;
 import me.jet315.stacker.events.OnEntitySpawn;
@@ -27,7 +28,6 @@ public class MobStacker extends JavaPlugin{
 
     @Override
     public void onEnable() {
-        
 
         mobStacker = this;
 
@@ -35,16 +35,12 @@ public class MobStacker extends JavaPlugin{
         config = new Config(this.getConfig());
 
 
-        entityStacker = new EntityStackerManager(config.updateTickDelay,config.stackRadius,config.mobsToStack);
+        entityStacker = new EntityStackerManager(config.stackRadius,config.mobsToStack);
         stackEntity = new StackEntity(config);
 
         // Register listeners
         Bukkit.getPluginManager().registerEvents(new OnEntityDeath(), this);
         Bukkit.getPluginManager().registerEvents(new OnEntityDamage(), this);
-        //This needs to be reloaded IF the value has changed - put this in a reload method although check to see if a class is already loaded
-        if(config.stackOnlySpawnerMobs){
-            Bukkit.getPluginManager().registerEvents(new OnEntitySpawn(),this);
-        }
 
         //World Guard
         Plugin plugin = getServer().getPluginManager().getPlugin("WorldGuard");
@@ -53,6 +49,9 @@ public class MobStacker extends JavaPlugin{
         if (plugin == null || !(plugin instanceof WorldGuardPlugin)) {
             config.worldguardEnabled = false;
         }
+
+        //Register commands
+        getCommand("mobstacker").setExecutor(new CommandHandler());
 
     }
 
@@ -80,7 +79,6 @@ public class MobStacker extends JavaPlugin{
 
         }
     }
-
 
     public static MobStacker getInstance() {
         return mobStacker;
