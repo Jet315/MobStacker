@@ -32,7 +32,7 @@ public class CommandHandler implements org.bukkit.command.CommandExecutor {
                 stringBuilder.append("&7&m----------&r &6MobStacker &aCommands &7&m----------\n");
                 if(sender.hasPermission("mobstacker.admin")){
                     stringBuilder.append(ChatColor.translateAlternateColorCodes('&',"&a&l/MS reload &e- &aUsed to reload the configuration file\n"));
-                    stringBuilder.append(ChatColor.translateAlternateColorCodes('&',"&a&l/MS killall &e- &aUsed to kill all living entities (Apart from Tamed, Leashed & those in a disabled world)"));
+                    stringBuilder.append(ChatColor.translateAlternateColorCodes('&',"&a&l/MS killall &e- &aUsed to kill all living entities (Apart from Tamed, Leashed & those in a disabled world)\n"));
                 }
                 stringBuilder.append("&7&m----------&r &aCreated by  Jet315 (Spigot) &7&m----------");
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', stringBuilder.toString()));
