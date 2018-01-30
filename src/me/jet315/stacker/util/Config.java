@@ -2,6 +2,7 @@ package me.jet315.stacker.util;
 
 import com.sk89q.worldguard.protection.ApplicableRegionSet;
 import me.jet315.stacker.MobStacker;
+import me.jet315.stacker.events.OnEntityDespawn;
 import me.jet315.stacker.events.OnEntitySpawn;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
@@ -95,6 +96,7 @@ public class Config {
         //Load Event if needed - If the event was not loaded before && needs to be loaded - load event
         if(!stackOnlySpawnerMobsBefore && stackOnlySpawnerMobs){
                 Bukkit.getPluginManager().registerEvents(new OnEntitySpawn(), MobStacker.getInstance());
+                Bukkit.getPluginManager().registerEvents(new OnEntityDespawn(), MobStacker.getInstance());
         }
 
     }

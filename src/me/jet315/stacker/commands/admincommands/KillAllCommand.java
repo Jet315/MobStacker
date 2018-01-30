@@ -6,6 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.World;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Tameable;
@@ -36,8 +37,9 @@ public class KillAllCommand extends CommandExecutor {
                 if(!entity.isValid()) continue;
                 if (entity.getType() == EntityType.PLAYER) continue;
                 if(entity.getType() == EntityType.PLAYER) continue;
-                if(((LivingEntity) entity).isLeashed()) continue;
+                if(entity.isLeashed()) continue;
                 if(entity instanceof Tameable) continue;
+                if(entity.getType() == EntityType.ARMOR_STAND) continue;
                 MobStacker.getInstance().getStackEntity().unstackAll(entity);
                 mobKillerCounter++;
             }
