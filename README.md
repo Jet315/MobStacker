@@ -3,5 +3,5 @@ This plugin living entities based on configuration values to improve server perf
 
 https://i.imgur.com/WUld0jD.png
 
-The compiled plugin can be downloaded from SpigotMC:
+The plugin can be viewed and downloaded from:
 https://www.spigotmc.org/resources/mobstacker-merge-mobs-together-opensource.52459/
