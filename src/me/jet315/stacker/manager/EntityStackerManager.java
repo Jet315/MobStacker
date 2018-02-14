@@ -9,10 +9,7 @@ import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import me.jet315.stacker.MobStacker;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Tameable;
+import org.bukkit.entity.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -100,6 +97,10 @@ public class EntityStackerManager {
             if (!validEnity.contains((LivingEntity) entity)){
                 return false;
             }
+        }
+        if(entity.getType() == EntityType.SLIME){
+            return false;
+
         }
         return true;
     }

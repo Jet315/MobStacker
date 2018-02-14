@@ -5,6 +5,7 @@ import me.jet315.stacker.commands.CommandHandler;
 import me.jet315.stacker.events.OnEntityDamage;
 import me.jet315.stacker.events.OnEntityDeath;
 import me.jet315.stacker.events.OnEntitySpawn;
+import me.jet315.stacker.events.OnSlimeSplit;
 import me.jet315.stacker.manager.EntityStackerManager;
 import me.jet315.stacker.manager.StackEntity;
 import me.jet315.stacker.util.Config;

@@ -21,7 +21,15 @@ public class OnEntityDeath implements Listener{
         if (!(e.getEntity() instanceof LivingEntity)) {
             return; // Not a living entity.
         }
-        LivingEntity entity = (LivingEntity) e.getEntity();
+
+        LivingEntity entity =  e.getEntity();
+
+        if(entity.getType() == EntityType.ARMOR_STAND || entity.getType() == EntityType.SLIME){
+            System.out.println("here22");
+            return;
+        }
+
+
 
         if (entity.getType() != EntityType.PLAYER) {
             if(MobStacker.getInstance().getEntityStacker().getEntitiesToMultiplyOnDeath().contains(entity)){

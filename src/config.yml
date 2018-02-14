@@ -19,7 +19,7 @@ StackRadius: 2
 
 #Contains the list of mobs we want to stack
 #Use https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html
-#For a valid list of entities
+#For a valid list of entities - Slimes NOT Supported in this build
 MobTypes:
     - ZOMBIE
     - PIG_ZOMBIE
@@ -60,6 +60,6 @@ MergeLeashedMobs: false
 DisabledWorlds: []
 
 #WorldGuardRegions:
-#    - disalbed_region1
-#    - disalbed_region2
+#    - disabled_region1
+#    - disabled_region2
 WorldGuardRegions: []

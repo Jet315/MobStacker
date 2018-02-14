@@ -4,7 +4,9 @@ import com.mysql.fabric.xmlrpc.base.Array;
 import me.jet315.stacker.MobStacker;
 import me.jet315.stacker.util.Config;
 import org.bukkit.ChatColor;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Slime;
 
 import java.util.Arrays;
 
@@ -39,6 +41,7 @@ public class StackEntity {
             // The stack is down to one mob; don't recreate it
             return false;
         }
+
 
         // Recreate the stack with one less mob
         mobsAmount--;
