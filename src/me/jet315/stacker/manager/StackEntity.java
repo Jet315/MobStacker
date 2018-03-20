@@ -1,6 +1,5 @@
 package me.jet315.stacker.manager;
 
-import com.mysql.fabric.xmlrpc.base.Array;
 import me.jet315.stacker.MobStacker;
 import me.jet315.stacker.util.Config;
 import org.bukkit.ChatColor;
@@ -112,7 +111,11 @@ public class StackEntity {
             return INVALID_STACK;
         }
         //Todo find what segment the %number% text is in and get() that rather than 0
-        return(Integer.parseInt(Arrays.asList(str.trim().split(" ")).get(mobStackerConfig.indexLocation)));
+        try {
+            return (Integer.parseInt(Arrays.asList(str.trim().split(" ")).get(mobStackerConfig.indexLocation)));
+        }catch(NumberFormatException e){
+            return INVALID_STACK;
+        }
     }
 
     private boolean isStacked(LivingEntity entity) {

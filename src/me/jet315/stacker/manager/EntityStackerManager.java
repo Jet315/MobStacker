@@ -41,7 +41,6 @@ public class EntityStackerManager {
                     if(MobStacker.getInstance().getMobStackerConfig().disabledWorlds.contains(world)) continue;
                     for (LivingEntity entity : world.getLivingEntities()) {
                         if(!checkEntity(entity)) continue;
-
                         // Iterate through all entities in range
                         for (Entity nearby : entity.getNearbyEntities(mobStackRadius, mobStackRadius, mobStackRadius)) {
 
