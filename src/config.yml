@@ -36,7 +36,6 @@ UpdateTickDelay: 60
 #The max of mobs allowed in a stack
 MaxAllowedInStack: 500
 
-
 # The format over the mobs heads
 # Use %number% to replace the number of stacked mobs
 # Use %type% to replace the number of type of mob

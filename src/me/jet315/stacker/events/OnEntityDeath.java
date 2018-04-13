@@ -3,9 +3,11 @@ package me.jet315.stacker.events;
 import me.jet315.stacker.MobStacker;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -25,14 +27,12 @@ public class OnEntityDeath implements Listener{
         LivingEntity entity =  e.getEntity();
 
         if(entity.getType() == EntityType.ARMOR_STAND || entity.getType() == EntityType.SLIME){
-            System.out.println("here22");
             return;
         }
 
 
-
         if (entity.getType() != EntityType.PLAYER) {
-            if(MobStacker.getInstance().getEntityStacker().getEntitiesToMultiplyOnDeath().contains(entity)){
+            if(MobStacker.getInstance().getEntityStacker().getEntitiesToMultiplyOnDeath().contains(entity) || (entity.getKiller() != null && MobStacker.getInstance().getEntityStacker().getInstantKillPlayers().contains(entity.getKiller().getName()))){
                 MobStacker.getInstance().getEntityStacker().getEntitiesToMultiplyOnDeath().remove(entity);
                 e.setDroppedExp(e.getDroppedExp() * multiplyDropsReturnExp(entity,e.getDrops()));
                 return;
@@ -59,4 +59,5 @@ public class OnEntityDeath implements Listener{
         return amountToMultiply;
 
     }
+
 }

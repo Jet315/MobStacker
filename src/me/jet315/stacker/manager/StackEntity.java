@@ -79,7 +79,6 @@ public class StackEntity {
         if(stackedMobsAlready >= MobStacker.getInstance().getMobStackerConfig().maxAllowedInStack || alreadyStacked >= MobStacker.getInstance().getMobStackerConfig().maxAllowedInStack) return false;
         stackee.remove();
         MobStacker.getInstance().getEntityStacker().getValidEntity().remove(stackee);
-
         if (alreadyStacked == INVALID_STACK) {
             // The target is NOT a stack
 
@@ -103,16 +102,11 @@ public class StackEntity {
         }
 
 
-        //Find out number from display name
-         String str = displayName.replaceAll("[^-?0-9]+", " ");
+          String colourStrip = ChatColor.stripColor(displayName);
+         String str = colourStrip.replaceAll("[^-?0-9]+", " ");
 
-        if(Arrays.asList(str.trim().split(" ")).size() <=0){
-            System.out.println("MOBSTACKER WARNING: Issue HAS arisen while parsing mobs name");
-            return INVALID_STACK;
-        }
-        //Todo find what segment the %number% text is in and get() that rather than 0
         try {
-            return (Integer.parseInt(Arrays.asList(str.trim().split(" ")).get(mobStackerConfig.indexLocation)));
+            return Integer.valueOf(str.replaceAll(" ",""));
         }catch(NumberFormatException e){
             return INVALID_STACK;
         }
